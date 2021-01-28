@@ -10,8 +10,8 @@ describe('Product search functionality without loggedin user', () => {
         browser.maximizeWindow();
 
         //Login to the site
-        Login.login("sumedhrtv@gmail.com","Test1234!","Sumedh Tambe");
-        expect(Login.myAccountOrderDetailButton).toHaveText("Order history and details");
+        Login.login("testaccount@testaccount.com","Test1234!","testuser lastname");
+        expect(Login.myAccountOrderDetailButton.getText().toLowerCase()).toMatch("order history and details");
 
         //Search for Dresses
         HomePage.search('Dresses');  
@@ -21,35 +21,38 @@ describe('Product search functionality without loggedin user', () => {
         
         //Now click on first product's Add Cart Button
         ProductGrid.AddProductInTheCart(0);
+        browser.pause(2000);
 
         Cart.proceedToCheckOutFromProductGrid.click();
-        expect(Cart.cartTitle).toHaveText("Shopping-cart summary");
+        expect(Cart.cartTitle.getText().toLowerCase()).toMatch("Shopping-cart summary".toLowerCase());
+        browser.pause(4000);
+        // console.log(ProductGrid.orderSteps[0].getAttribute("class"));
+        // expect(ProductGrid.orderSteps[0].getAttribute("class")).toHaveText("current");
 
-        Cart.proceedToCheckOutFromProductGrid.click();
-        browser.pause(1000)
-        Cart.proceedToCheckOutFromProductGrid.click();
-        Cart.termsAccept();
-        Cart.proceedToCheckOutFromProductGrid.click();
-        Cart.paymentBankWire.clcik();
+        Cart.proceedToCheckOutSummaryStep.waitForExist({ timeout:3000, interval:400 });
+        Cart.proceedToCheckOutSummaryStep.scrollIntoView();
+        Cart.proceedToCheckOutSummaryStep.click();
+        
+        Cart.proceedToCheckOutAddressStep.waitForExist({ timeout:3000, interval:400 });
+        Cart.proceedToCheckOutAddressStep.scrollIntoView();
+        Cart.proceedToCheckOutAddressStep.click();
+        
+        Cart.termsAccept.waitForExist({ timeout:3000, interval:400 });
+        Cart.termsAccept.scrollIntoView();
+        Cart.termsAccept.click();
+
+        Cart.proceedToCheckOutShippingStep.waitForExist({ timeout:3000, interval:400 });
+        Cart.proceedToCheckOutShippingStep.scrollIntoView();
+        Cart.proceedToCheckOutShippingStep.click();
+        
+        Cart.paymentBankWire.waitForExist({ timeout:3000, interval:400 });
+        Cart.paymentBankWire.scrollIntoView();
+        Cart.paymentBankWire.click();
+        
+        Cart.confirmOrder.waitForExist({ timeout:3000, interval:400 });
+        Cart.confirmOrder.scrollIntoView();        
         Cart.confirmOrder.click();
+        browser.pause(4000);
 
-
-        
-        
-        // //After registration pop up is opened navigate to login link from the pop up
-        // LoginRegist.ClickOnLoginLinkFromTheRegPopUp();
-        
-        // //Login to the site and check first name is displayed with my account icon
-        // LoginRegist.login('sumedhrtv@gmail.com','Test1234!','Sumedh');
-        
-        // //After login Ensure that correct number of wishlisted items are present
-        // expect(HomePage.numberOfWishListedItems).toHaveText('1');
-
-
-        // //Go to wishlisted page
-        // ElementGrid.ClickToGoToWishListedProduct();
-
-        // //Remove the product from the wishlist
-        // WishList.RemoveWishListedItem();
     })
 })
