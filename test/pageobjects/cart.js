@@ -12,15 +12,5 @@ class Cart{
     get termsAccept (){return $('.checker #cgv')}
     get paymentBankWire () {return $('#HOOK_PAYMENT>div>div>p[class="payment_module"]')}
     get confirmOrder() {return $('#cart_navigation button[type="submit"]>span')}
-
-    RemoveWishListedItem(){
-        this.wishListedItemsDelete.click();
-        this.wishListedItemsDelete.waitForExist({ timeout:5000,reverse:true, timeoutMsg:"Wishlist counter was not reduced", interval:400 })
-    }
-    
-    
-
-
-
 }
 module.exports=new Cart();

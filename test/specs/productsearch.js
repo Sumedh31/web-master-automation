@@ -3,8 +3,8 @@ const ProductGrid = require('../pageobjects/productgrid');
 const LoginRegist = require('../pageobjects/login');
 const WishList = require('../pageobjects/cart');
 
-describe('Product search functionality without loggedin user', () => {
-    it('Should add the wishlisted item to list', () => {        
+describe('Product search functionality without logging in user', () => {
+    it('Should search for the given products', () => {        
         HomePage.open();
         browser.maximizeWindow();
 
