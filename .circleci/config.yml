@@ -20,7 +20,10 @@ jobs:
           command: npm ci
       - run:
           name: Test
-          command: npm test wdio.conf.js
+          command: npx wdio wdio.conf.js --spec productsearch.js
+      - run:
+          name: Test
+          command: npx wdio wdio.conf.js --spec addtocarte2e.js
       - store_test_results:
           path: report
 workflows:
