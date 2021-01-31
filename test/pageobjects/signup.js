@@ -38,18 +38,12 @@ class SignUp{
         this.firstName.setValue(firstname);
         this.lastName.setValue(lastname);
         this.registrationFromPaswd.setValue(password);
-        browser.pause(1000);
         this.dobDay.selectByAttribute('value','1');
-        browser.pause(1000);
         this.dobMonth.selectByAttribute('value','1');
-        browser.pause(1000);
         this.dobYear.selectByAttribute('value','2000');
-        browser.pause(1000);
         this.addressFirstName.setValue(firstname);
-        browser.pause(1000);
         this.addressLastName.scrollIntoView();
         this.addressLastName.setValue(lastname);
-        browser.pause(1000);
         this.addressCompany.setValue("dummytest");
         this.addressAddress.setValue("dummytest");
         this.addressAddressLine2.setValue("dummytest");
@@ -63,7 +57,6 @@ class SignUp{
         this.registerButton.click();
 
         homePage.homePageLogo.waitForExist({timeout:5000,interval:100});
-        homePage.homePageLogo.click();
     }
 
 }

@@ -11,6 +11,7 @@ class HomePage extends BasePage {
     get searchBar (){return $('#search_query_top')}    
     get searchResults () {return $('//h1[contains(@class,"page-heading")]//span[contains(text(),"been found")]')}    
     get homePageLogo() {return $('#header_logo')}
+    get homePageHeading() {return $('#center_column .page-heading')}
     
 
     /**

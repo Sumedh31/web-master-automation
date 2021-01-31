@@ -12,5 +12,6 @@ class Cart{
     get termsAccept (){return $('.checker #cgv')}
     get paymentBankWire () {return $('#HOOK_PAYMENT>div>div>p[class="payment_module"]')}
     get confirmOrder() {return $('#cart_navigation button[type="submit"]>span')}
+    get orderComplete(){return $('//strong[contains(text(),"Your order on My Store is complete")]')}
 }
 module.exports=new Cart();

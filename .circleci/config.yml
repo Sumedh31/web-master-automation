@@ -19,11 +19,14 @@ jobs:
           name: Install Node Modules
           command: npm ci
       - run:
-          name: Test
+          name: Running Product Search Test
           command: npx wdio wdio.conf.js --spec productsearch.js
       - run:
-          name: Test
+          name: Running Cart and Checkout
           command: npx wdio wdio.conf.js --spec addtocarte2e.js
+      - run:
+          name: Running Signup process test
+          command: npx wdio wdio.conf.js --spec signupprocess.js
       - store_test_results:
           path: report
 workflows:
