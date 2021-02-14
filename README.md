@@ -1,4 +1,4 @@
-# WebDriverIO Tests for WestWing
+# WebDriverIO Tests
 
 # Framework
 The test is located at
